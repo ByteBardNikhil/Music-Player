@@ -1,0 +1,185 @@
+:root {
+  --primary-color: white;
+  --secondary-color: gray;
+  --shadow: inset 2px 1px 0.4px rgba(170, 170, 170, 0.5),
+    inset -2px -1px 0.2px rgba(161, 161, 161, 0.7);
+  --right-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: rgb(65, 59, 59);
+  border-radius: 2rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  width: 95%;
+  margin: auto;
+}
+.logo {
+  margin-right: auto;
+  padding-left: 1rem;
+  cursor: pointer;
+}
+.logo img {
+  height: 3rem;
+}
+.searchBar {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.searchBar input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-left: 0.8rem;
+  width: 80%;
+  box-shadow: var(--shadow);
+  border: none;
+}
+.searchBar input:focus {
+  border: none;
+  outline: 0.2px solid white;
+}
+.darkNLight {
+  margin-left: auto;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.music-image img {
+  width: 100%;
+  height: 100%;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.4s; /* Transition for smooth effect */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; /* Height of the slider knob */
+  width: 26px; /* Width of the slider knob */
+  left: 4px; /* Position from the left */
+  bottom: 4px; /* Position from the bottom */
+  background-color: white; /* Color of the knob */
+  border-radius: 50%; /* Make it round */
+  transition: 0.4s; /* Transition for smooth effect */
+}
+
+input:checked + .slider {
+  background-color: #2196f3; /* Background color when on */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.darkNLight {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; /* Change cursor to indicate hoverable element */
+  transition: all 5s;
+}
+
+.darkNLight:hover::after {
+  content: "Dark/Light Mode";
+  padding: 1rem;
+  margin: -0.6rem;
+  visibility: visible;
+  width: 120px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  text-align: center;
+  padding: 0.2rem 0;
+  border-radius: 1rem;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 20%;
+  margin-left: -4rem;
+
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.darkNLight:hover::before {
+  content: "";
+  visibility: hidden;
+}
+
+/* Additional styles for the switch can be included here */
+main {
+  display: flex;
+  justify-content: space-between;
+  width: 94%;
+  margin: auto;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+  box-shadow: var(--shadow);
+}
+main div {
+  box-shadow: var(--right-shadow);
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 80%;
+  gap: 2rem;
+  justify-content: center;
+}
+.section-2 {
+}
+
+h2 {
+  display: none;
+}
+.song-details {
+  box-shadow: none;
+}
+
+.music-image,
+.audio,
+.navigation-buttons,
+.btn {
+  margin: auto;
+  margin-top: 1rem;
+  text-align: center;
+}
+.navigation-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+@media screen and (max-width: 900px) {
+  main {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .section-1,
+  .section-2,
+  .section-3 {
+    width: 100%;
+  }
+}

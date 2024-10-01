@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Death Bed",
+    "artist": "Powfu",
+    "artwork": "https://samplesongs.netlify.app/album-arts/death-bed.jpg",
+    "url": "https://samplesongs.netlify.app/Death%20Bed.mp3",
+    "id": "1",
+    "genre": "Hip Hop"
+  },
+  {
+    "title": "Bad Liar",
+    "artist": "Imagine Dragons",
+    "artwork": "https://samplesongs.netlify.app/album-arts/bad-liar.jpg",
+    "url": "https://samplesongs.netlify.app/Bad%20Liar.mp3",
+    "id": "2",
+    "genre": "Rock"
+  },
+  {
+    "title": "Faded",
+    "artist": "Alan Walker",
+    "artwork": "https://samplesongs.netlify.app/album-arts/faded.jpg",
+    "url": "https://samplesongs.netlify.app/Faded.mp3",
+    "id": "3",
+    "genre": "Pop"
+  },
+  {
+    "title": "Hate Me",
+    "artist": "Ellie Goulding",
+    "artwork": "https://samplesongs.netlify.app/album-arts/hate-me.jpg",
+    "url": "https://samplesongs.netlify.app/Hate%20Me.mp3",
+    "id": "4",
+    "genre": "rock"
+  },
+  {
+    "title": "Solo",
+    "artist": "Clean Bandit",
+    "artwork": "https://samplesongs.netlify.app/album-arts/solo.jpg",
+    "url": "https://samplesongs.netlify.app/Solo.mp3",
+    "id": "5",
+    "genre": "Pop"
+  },
+  {
+    "title": "Without Me",
+    "artist": "Halsey",
+    "artwork": "https://samplesongs.netlify.app/album-arts/without-me.jpg",
+    "url": "https://samplesongs.netlify.app/Without%20Me.mp3",
+    "id": "6",
+    "genre": "hip hop"
+  },
+  {
+    "title": "Shape of You",
+    "artist": "Ed Sheeran",
+    "artwork": "data:image/jpeg;base64,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",
+    "url": "https://samplesongs.netlify.app/Without%20Me.mp3",
+    "id": "7",
+    "genre": "Pop"
+  }
+]

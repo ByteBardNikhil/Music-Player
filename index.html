@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- header contains a Logo, search bar, and toggle button -->
+      <span class="logo"><img src="media/logo.png" alt="Site Logo" /></span>
+      <span class="searchBar"
+        ><input type="text" placeholder="Search..." aria-label="Search"
+      /></span>
+      <span class="darkNLight">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider round"></span>
+        </label>
+      </span>
+    </header>
+    <main>
+      <div class="section-1">
+        <h2 class="section-title">Music Genre Filter</h2>
+        <label for="genre-filter" class="filter-label">Filter by Genre:</label>
+        <select
+          id="genre-filter"
+          class="genre-dropdown"
+          aria-label="Select music genre"
+        >
+          <option value="All">All</option>
+          <option value="pop">Pop</option>
+          <option value="rock">Rock</option>
+          <option value="hip hop">Hip-Hop</option>
+        </select>
+
+        <h3 id="song-list-title">Song List</h3>
+        <ul class="song-list">
+          <li class="song-item"></li>
+        </ul>
+      </div>
+      <div class="section-2">
+        <h2 class="music-display-title">Currently Playing Music</h2>
+
+        <div class="music-image">
+          <img
+            src="path/to/your/image.jpg"
+            alt="Album Cover"
+            id="album-cover"
+            loading="eager"
+          />
+          <div class="song-details">
+            <h3 id="song-name"></h3>
+            <p id="singer-name"></p>
+          </div>
+        </div>
+
+        <div class="audio">
+          <audio
+            id="audio-player"
+            class="audio-player"
+            controls
+            aria-label="Audio player"
+          >
+            <source
+              src="path/to/your/audio-file.mp3"
+              type="audio/mpeg"
+              id="sourceAudio"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="navigation-buttons">
+          <button id="prev-song" class="nav-button" aria-label="Previous Song">
+            Previous Song
+          </button>
+          <button id="next-song" class="nav-button" aria-label="Next Song">
+            Next Song
+          </button>
+        </div>
+
+        <p class="btn">
+          <button
+            id="add-to-playlist"
+            class="add-playlist-button"
+            aria-label="Add to Playlist"
+          >
+            Add to Playlist
+          </button>
+        </p>
+      </div>
+      <div class="section-3">
+        <h2 class="playlist-title">Create Playlist Section</h2>
+
+        <div class="create-playlist">
+          <input
+            type="text"
+            id="playlist-name"
+            class="playlist-input"
+            placeholder="Name your playlist"
+            aria-label="Playlist name input"
+          />
+          <button
+            id="create-playlist-button"
+            class="create-playlist-button"
+            aria-label="create Playlist"
+          >
+            Create Playlist
+          </button>
+        </div>
+
+        <h3 class="current-playlist-title">Current Playlist</h3>
+        <ul id="current-playlist" class="playlist-display"></ul>
+
+        <h3 class="all-playlists-title">All Playlists</h3>
+        <ul id="all-playlists" class="playlist-display"></ul>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
