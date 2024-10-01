@@ -188,7 +188,9 @@ function updateAllPlaylistsDisplay() {
   Object.keys(playlists).forEach((playlistName) => {
     const li = document.createElement("li");
     li.textContent = playlistName;
+
     li.addEventListener("click", () => displayPlaylist(playlistName));
+
     allPlaylistsEl.appendChild(li);
   });
 }
@@ -227,16 +229,15 @@ function searchSuggestions(searchTerm) {
   );
 
   filteredSongs.forEach((song) => {
-    const p = document.createElement("p");
+    const p = document.createElement("li");
     const suggestionsContainer = document.getElementById("suggestions");
     suggestionsContainer.style.display = "block";
     p.textContent = `${song.title} - ${song.artist}`;
     p.style.margin = 0;
     p.style.zIndex = 10;
+    p.style.listStyleType = "none";
+    p.style.padding = "1rem";
 
-    p.style.margin = "0.2rem";
-
-    p.style.padding = "0.4rem";
     p.addEventListener("click", () => {
       currentlyPlayingMusic(song);
       document.getElementById("search-input").value = "";
