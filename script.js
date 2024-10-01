@@ -109,7 +109,7 @@ addToPlaylistBtn.addEventListener("click", () => {
     return;
   }
 
-  const currentSong = songsData[currSong]; // Assuming songsData and currSong are defined
+  const currentSong = songsData[currSong];
 
   const isSongPresent = currentPlaylist.some(
     (song) => song.title === currentSong.title
@@ -142,7 +142,7 @@ createPlaylistBtn.addEventListener("click", () => {
     return;
   }
 
-  playlists[playlistName] = [...currentPlaylist];
+  playlists[playlistName] = [];
   currentPlaylist = [];
   currentPlaylistName = playlistName;
 
@@ -160,13 +160,14 @@ function updateCurrentPlaylistDisplay() {
     const li = document.createElement("li");
     li.textContent = `${song.title} - ${song.artist}`;
 
-    // Create the Remove button
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove";
     removeBtn.style.float = "right";
     removeBtn.style.padding = "0.2rem";
     removeBtn.style.background = "red";
-    removeBtn.addEventListener("click", () => {
+    removeBtn.style.color = "white";
+    removeBtn.addEventListener("click", (event) => {
+      event.stopPropagation();
       removeFromCurrentPlaylist(index);
     });
 
