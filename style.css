@@ -1,13 +1,31 @@
 :root {
   --primary-color: white;
-  --secondary-color: gray;
+  --secondary-color: rgb(238, 229, 229);
   --shadow: inset 2px 1px 0.4px rgba(170, 170, 170, 0.5),
     inset -2px -1px 0.2px rgba(161, 161, 161, 0.7);
   --right-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
   font-family: cursive;
   --inset-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1),
     inset -3px -3px 8px rgba(208, 206, 206, 0.7);
+  --navbar-background: rgb(220, 212, 212);
+  --body-color: white !important;
 }
+body.dark-mode {
+  --primary-color: rgb(95, 92, 92);
+  --secondary-color: lightgray;
+  --shadow: inset 2px 1px 0.4px rgba(50, 50, 50, 0.5),
+    inset -2px -1px 0.2px rgba(60, 60, 60, 0.7);
+  --right-shadow: 5px 0 15px rgba(0, 0, 0, 0.7);
+  --inset-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.8),
+    inset -3px -3px 8px rgba(30, 30, 30, 0.7);
+  font-family: cursive;
+  --navbar-background: rgb(81, 77, 77);
+  --body-color: rgb(107, 106, 106) !important;
+}
+body {
+  background-color: var(--body-color);
+}
+
 .filter-label {
   padding: 0.5rem;
   box-shadow: var(--inset-shadow);
@@ -25,7 +43,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  background-color: rgb(65, 59, 59);
+  background-color: var(--navbar-background);
   border-radius: 2rem;
   padding: 1rem;
   box-shadow: var(--shadow);
@@ -42,6 +60,7 @@ header {
   display: none;
   position: absolute;
   top: 10vh;
+
   box-shadow: var(--right-shadow);
   padding: 0.5rem;
   background-color: transparent;
@@ -49,6 +68,8 @@ header {
   border-radius: 1rem;
   cursor: pointer;
   transition: all 0.2s;
+  left: 14rem;
+  margin-top: 1rem;
 }
 
 .logo img {
@@ -56,7 +77,6 @@ header {
 }
 .searchBar {
   flex-grow: 1;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,6 +203,7 @@ main {
   margin-top: 2rem;
   border-radius: 2rem;
   box-shadow: var(--shadow);
+  background-color: var(--primary-color);
 }
 main div {
   box-shadow: var(--right-shadow);
@@ -191,6 +212,8 @@ main div {
   width: 80%;
   gap: 2rem;
   justify-content: center;
+  margin-right: 1rem;
+  background-color: var(--secondary-color);
 }
 .section-2 {
 }
@@ -230,6 +253,7 @@ button {
 
 .create-playlist-button {
   padding: 0.5rem;
+  margin-top: 0.4rem;
 }
 button:hover {
   transform: scale(1.1);
@@ -241,6 +265,7 @@ button:hover {
   font-size: 1rem;
   border-radius: 1rem;
   transition: all 0.5s;
+  background-color: var(--secondary-color);
 }
 .playlist-input:focus {
   outline: none;
@@ -276,5 +301,25 @@ footer p {
   }
   audio {
     width: 100%;
+  }
+  #suggestions {
+    left: 9rem;
+  }
+}
+@media screen and (max-width: 540px) {
+  #suggestions {
+    left: 7rem;
+    width: 60%;
+    font-size: 0.9rem;
+  }
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .darkNLight {
+    margin: auto;
+  }
+  .darkNLight:hover::after {
+    display: none;
   }
 }

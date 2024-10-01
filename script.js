@@ -180,6 +180,7 @@ function displayPlaylist(playlistName) {
 }
 
 // song search bar
+const searhInput = document.getElementById("search-input");
 
 document.getElementById("search-input").addEventListener("input", function () {
   searchSuggestions(this.value);
@@ -212,3 +213,8 @@ function searchSuggestions(searchTerm) {
     suggestionsContainer.appendChild(p);
   });
 }
+
+const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
+toggleSwitch.addEventListener("change", () => {
+  document.body.classList.toggle("dark-mode", toggleSwitch.checked);
+});
