@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Music Player</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="media/logo.png" type="image/x-icon" />
   </head>
   <body>
     <header>
       <!-- header contains a Logo, search bar, and toggle button -->
       <span class="logo"><img src="media/logo.png" alt="Site Logo" /></span>
       <span class="searchBar"
-        ><input type="text" placeholder="Search..." aria-label="Search"
-      /></span>
+        ><input
+          type="text"
+          id="search-input"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+        <p id="suggestions"></p>
+      </span>
+
       <span class="darkNLight">
         <label class="switch">
           <input type="checkbox" />
@@ -99,7 +107,7 @@
             type="text"
             id="playlist-name"
             class="playlist-input"
-            placeholder="Name your playlist"
+            placeholder="     your playlist name"
             aria-label="Playlist name input"
           />
           <button
@@ -118,6 +126,7 @@
         <ul id="all-playlists" class="playlist-display"></ul>
       </div>
     </main>
+    <footer><p>crafted with care by Nikhil Mahajan</p></footer>
     <script src="script.js"></script>
   </body>
 </html>

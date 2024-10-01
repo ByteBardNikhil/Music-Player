@@ -27,7 +27,7 @@ const prevSongBtn = document.getElementById("prev-song");
 const genreFilter = document.getElementById("genre-filter");
 const songList = document.querySelector(".song-list");
 const playListName = document.querySelector(".playlist-input").innerHTML;
-
+genreFilter.style.fontFamily = "cursive";
 let currSong = 0;
 function process(data) {
   playSong(currSong, data);
@@ -47,7 +47,6 @@ function currentlyPlayingMusic(song) {
 
   sourceAudio.src = url;
   audioEl.load();
-  //   audioEl.play();
 }
 nextSongBtn.addEventListener("click", () => {
   currSong++;
@@ -110,7 +109,7 @@ addToPlaylistBtn.addEventListener("click", () => {
     return;
   }
 
-  const currentSong = songsData[currSong]; // Get the currently playing song
+  const currentSong = songsData[currSong];
 
   const isSongPresent = currentPlaylist.some(
     (song) => song.title === currentSong.title
@@ -175,7 +174,41 @@ function updateAllPlaylistsDisplay() {
 }
 
 function displayPlaylist(playlistName) {
-  currentPlaylist = [...playlists[playlistName]]; // Load the selected playlist into the current playlist
+  currentPlaylist = [...playlists[playlistName]];
   currentPlaylistName = playlistName;
   updateCurrentPlaylistDisplay();
+}
+
+// song search bar
+
+document.getElementById("search-input").addEventListener("input", function () {
+  searchSuggestions(this.value);
+});
+function searchSuggestions(searchTerm) {
+  const suggestionsContainer = document.getElementById("suggestions");
+  suggestionsContainer.innerHTML = "";
+
+  if (searchTerm === "") return;
+
+  const lowerCaseTerm = searchTerm.toLowerCase();
+
+  const filteredSongs = songsData.filter(
+    (song) =>
+      song.title.toLowerCase().includes(lowerCaseTerm) ||
+      song.artist.toLowerCase().includes(lowerCaseTerm)
+  );
+
+  filteredSongs.forEach((song) => {
+    const p = document.createElement("p");
+    const suggestionsContainer = document.getElementById("suggestions");
+    suggestionsContainer.style.display = "block";
+    p.textContent = `${song.title} - ${song.artist}`;
+    p.style.margin = 0;
+    p.style.zIndex = 10;
+
+    p.style.margin = "0.2rem";
+
+    p.style.padding = "0.4rem";
+    suggestionsContainer.appendChild(p);
+  });
 }
