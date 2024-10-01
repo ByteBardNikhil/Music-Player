@@ -93,7 +93,6 @@ function populatingList(songs) {
 }
 
 //Playlist code started
-
 let playlists = {};
 let currentPlaylist = [];
 let currentPlaylistName = "";
@@ -110,7 +109,7 @@ addToPlaylistBtn.addEventListener("click", () => {
     return;
   }
 
-  const currentSong = songsData[currSong];
+  const currentSong = songsData[currSong]; // Assuming songsData and currSong are defined
 
   const isSongPresent = currentPlaylist.some(
     (song) => song.title === currentSong.title
@@ -123,6 +122,7 @@ addToPlaylistBtn.addEventListener("click", () => {
 
   addToCurrentPlaylist(currentSong);
 });
+
 function addToCurrentPlaylist(song) {
   currentPlaylist.push(song);
   playlists[currentPlaylistName] = [...currentPlaylist];
@@ -143,7 +143,6 @@ createPlaylistBtn.addEventListener("click", () => {
   }
 
   playlists[playlistName] = [...currentPlaylist];
-
   currentPlaylist = [];
   currentPlaylistName = playlistName;
 
@@ -153,20 +152,35 @@ createPlaylistBtn.addEventListener("click", () => {
   updateAllPlaylistsDisplay();
   updateCurrentPlaylistDisplay();
 });
+
 function updateCurrentPlaylistDisplay() {
   currentPlaylistEl.innerHTML = "";
 
   currentPlaylist.forEach((song, index) => {
     const li = document.createElement("li");
     li.textContent = `${song.title} - ${song.artist}`;
+
+    // Create the Remove button
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.style.float = "right";
+    removeBtn.style.padding = "0.2rem";
+    removeBtn.style.background = "red";
+    removeBtn.addEventListener("click", () => {
+      removeFromCurrentPlaylist(index);
+    });
+
+    li.appendChild(removeBtn);
     li.addEventListener("click", () => {
       currSong = index;
       console.log("update List even Listen", currentPlaylist, index);
       playSong(currSong, currentPlaylist);
     });
+
     currentPlaylistEl.appendChild(li);
   });
 }
+
 function updateAllPlaylistsDisplay() {
   allPlaylistsEl.innerHTML = "";
 
@@ -184,12 +198,19 @@ function displayPlaylist(playlistName) {
   updateCurrentPlaylistDisplay();
 }
 
+function removeFromCurrentPlaylist(index) {
+  currentPlaylist.splice(index, 1);
+  playlists[currentPlaylistName] = [...currentPlaylist];
+  updateCurrentPlaylistDisplay();
+}
+
 // song search bar
 const searhInput = document.getElementById("search-input");
 
 document.getElementById("search-input").addEventListener("input", function () {
   searchSuggestions(this.value);
 });
+
 function searchSuggestions(searchTerm) {
   const suggestionsContainer = document.getElementById("suggestions");
   suggestionsContainer.innerHTML = "";
@@ -229,3 +250,47 @@ const toggleSwitch = document.querySelector('.switch input[type="checkbox"]');
 toggleSwitch.addEventListener("change", () => {
   document.body.classList.toggle("dark-mode", toggleSwitch.checked);
 });
+
+//seach logic for playlist search
+
+const searchInput = document.getElementById("search-playlist");
+searchInput.addEventListener("input", function () {
+  searchPlayList(this.value);
+});
+function searchPlayList(term) {
+  const playListSuggestions = document.getElementById("playListSuggestions");
+  playListSuggestions.style.display = "block";
+  if (term === "") playListSuggestions.style.display = "none";
+  console.log(term);
+  playListSuggestions.innerHTML = "";
+  if (Object.keys(playlists).length === 0) {
+    alert("No song aaded to playlist");
+
+    return;
+  }
+  const filteredPlaylists = Object.keys(playlists).filter((playlist) =>
+    playlist.toLowerCase().includes(term.toLowerCase())
+  );
+
+  if (filteredPlaylists.length === 0) {
+    playListSuggestions.innerHTML = "No matching playlists found";
+    return;
+  }
+  filteredPlaylists.forEach((playlist) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = playlist;
+    console.log(playlist);
+    listItem.style.cursor = "pointer";
+    listItem.style.borderRadius = "1rem";
+
+    listItem.onclick = () => {
+      currentPlaylist = playlists[playlist];
+      currentPlaylistName = playlist;
+      searchInput.value = "";
+      playListSuggestions.style.display = "none";
+      console.log("Current Playlist Changed to:", currentPlaylistName);
+    };
+
+    playListSuggestions.appendChild(listItem);
+  });
+}

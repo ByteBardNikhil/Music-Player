@@ -52,12 +52,7 @@
         <h2 class="music-display-title">Currently Playing Music</h2>
 
         <div class="music-image">
-          <img
-            src="path/to/your/image.jpg"
-            alt="Album Cover"
-            id="album-cover"
-            loading="eager"
-          />
+          <img src="" alt="Album Cover" id="album-cover" loading="eager" />
           <div class="song-details">
             <h3 id="song-name"></h3>
             <p id="singer-name"></p>
@@ -71,11 +66,7 @@
             controls
             aria-label="Audio player"
           >
-            <source
-              src="path/to/your/audio-file.mp3"
-              type="audio/mpeg"
-              id="sourceAudio"
-            />
+            <source src="" type="audio/mpeg" id="sourceAudio" />
             Your browser does not support the audio element.
           </audio>
         </div>
@@ -107,7 +98,7 @@
             type="text"
             id="playlist-name"
             class="playlist-input"
-            placeholder="     Enter your playlist name here"
+            placeholder="playlist name here"
             aria-label="Playlist name input"
           />
           <button
@@ -117,6 +108,16 @@
           >
             Create Playlist
           </button>
+        </div>
+        <div class="search-section">
+          <input
+            type="text"
+            id="search-playlist"
+            class="search-input"
+            placeholder="Search playlists"
+            aria-label="Search playlists input"
+          />
+          <ul id="playListSuggestions"></ul>
         </div>
 
         <h3 class="current-playlist-title">Current Playlist</h3>
