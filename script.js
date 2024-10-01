@@ -85,6 +85,7 @@ function populatingList(songs) {
     songItem.textContent = song.title + " - " + song.artist;
     songItem.addEventListener("click", () => {
       currSong = index;
+      console.log("Populating List even Listen", songs, index);
       playSong(currSong, songs);
     });
     songList.append(songItem);
@@ -155,10 +156,14 @@ createPlaylistBtn.addEventListener("click", () => {
 function updateCurrentPlaylistDisplay() {
   currentPlaylistEl.innerHTML = "";
 
-  currentPlaylist.forEach((song) => {
+  currentPlaylist.forEach((song, index) => {
     const li = document.createElement("li");
     li.textContent = `${song.title} - ${song.artist}`;
-
+    li.addEventListener("click", () => {
+      currSong = index;
+      console.log("update List even Listen", currentPlaylist, index);
+      playSong(currSong, currentPlaylist);
+    });
     currentPlaylistEl.appendChild(li);
   });
 }
@@ -210,6 +215,12 @@ function searchSuggestions(searchTerm) {
     p.style.margin = "0.2rem";
 
     p.style.padding = "0.4rem";
+    p.addEventListener("click", () => {
+      currentlyPlayingMusic(song);
+      document.getElementById("search-input").value = "";
+      suggestionsContainer.innerHTML = "";
+      suggestionsContainer.style.display = "none";
+    });
     suggestionsContainer.appendChild(p);
   });
 }

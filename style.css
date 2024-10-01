@@ -168,8 +168,7 @@ input:checked + .slider:before {
 
 .darkNLight:hover::after {
   content: "Dark/Light Mode";
-  padding: 1rem;
-  margin: -0.6rem;
+
   visibility: visible;
   width: 120px;
   background-color: var(--secondary-color);
@@ -180,12 +179,15 @@ input:checked + .slider:before {
 
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 20%;
-  margin-left: -4rem;
+  bottom: 50%;
+  right: 100%;
+  margin-right: 10px;
 
   opacity: 1;
   transition: opacity 0.3s;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  font-weight: 900;
 }
 
 .darkNLight:hover::before {
@@ -232,6 +234,12 @@ h2 {
   margin: auto;
   margin-top: 1rem;
   text-align: center;
+}
+.audio {
+  width: 80%;
+}
+audio {
+  width: 100%;
 }
 .navigation-buttons {
   display: flex;
@@ -282,10 +290,15 @@ footer p {
   width: 50%;
 }
 @media screen and (max-width: 900px) {
+  header {
+    width: 95%;
+    margin: auto;
+  }
   main {
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+    width: 90%;
   }
   .section-1,
   .section-2,
@@ -315,9 +328,14 @@ footer p {
   header {
     flex-wrap: wrap;
     justify-content: center;
+    width: 90%;
   }
   .darkNLight {
     margin: auto;
+  }
+
+  main {
+    width: 80%;
   }
   .darkNLight:hover::after {
     display: none;
